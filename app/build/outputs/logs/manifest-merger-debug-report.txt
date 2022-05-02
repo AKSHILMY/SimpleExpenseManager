@@ -67,7 +67,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\ATHEEK\.gradle\cache
 	android:label
 		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:25:9-41
 	android:icon
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:24:9-43
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:24:9-62
 	android:allowBackup
 		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:23:9-35
 	android:theme

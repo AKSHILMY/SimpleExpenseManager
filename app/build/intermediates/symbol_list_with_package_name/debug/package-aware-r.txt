@@ -428,6 +428,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_money_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -715,6 +716,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_launcher_money_foreground
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1010,6 +1012,8 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout tooltip
 mipmap ic_launcher
+mipmap ic_launcher_money
+mipmap ic_launcher_money_round
 string abc_action_bar_home_description
 string abc_action_bar_home_description_format
 string abc_action_bar_home_subtitle_description_format
