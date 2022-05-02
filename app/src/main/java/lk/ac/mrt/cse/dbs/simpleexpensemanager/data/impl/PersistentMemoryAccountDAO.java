@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.App;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.DatabaseHelper;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.AccountDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InvalidAccountException;
@@ -16,27 +17,29 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.ui.MainActivity;
 
 public class PersistentMemoryAccountDAO implements AccountDAO {
-    private final Context context = MainActivity.getContext();
-    private final DatabaseHelper dbHelper = new DatabaseHelper(context);
-    private final Map<String, Account> accounts;
+    private final Context context;
+    private final DatabaseHelper dbHelper ;
 
     public PersistentMemoryAccountDAO() {
-        this.accounts = dbHelper.getAccounts();
+        context = App.getContext();
+        dbHelper = new DatabaseHelper(context);
+
     }
 
     @Override
     public List<String> getAccountNumbersList() {
-        return new ArrayList<>(this.accounts.keySet());
+        return new ArrayList<>(this.dbHelper.getAccounts().keySet());
+
     }
 
     @Override
     public List<Account> getAccountsList() {
-        return new ArrayList<>(this.accounts.values());
+        return new ArrayList<>(this.dbHelper.getAccounts().values());
     }
 
     @Override
     public Account getAccount(String accountNo) throws InvalidAccountException {
-        return this.accounts.get(accountNo);
+        return this.dbHelper.getAccounts().get(accountNo);
     }
 
     @Override
@@ -51,11 +54,11 @@ public class PersistentMemoryAccountDAO implements AccountDAO {
 
     @Override
     public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException {
-        if (!accounts.containsKey(accountNo)) {
+        if (!dbHelper.getAccounts().containsKey(accountNo)) {
             String msg = "Account " + accountNo + " is invalid.";
             throw new InvalidAccountException(msg);
         }
-        Account account = accounts.get(accountNo);
+        Account account = dbHelper.getAccounts().get(accountNo);
         // specific implementation based on the transaction type
         switch (expenseType) {
             case EXPENSE:

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\2f8b7af17c9061e16e6899167ebe9917\transformed\design-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\fcae1786dd322e72834643dceb78b7a6\transformed\appcompat-v7-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\0ffb827c8eff4299fa7b9dc8773db933\transformed\animated-vector-drawable-26.1.0\AndroidManifest.xml:17:1-28:12
@@ -17,25 +17,25 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\ATHEEK\.gra
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\402a899b584fcf5c55e9845621aa965a\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\598bac8afb35d8d15acdb577722154df\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\c6335d5d821ceca9b147ae358bc39bdd\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
-INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
+INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
 	package
 		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:19:11-59
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-39:12
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:1-40:12
 		INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:18:11-69
 application
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:21:5-37:19
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:21:5-38:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\2f8b7af17c9061e16e6899167ebe9917\transformed\design-26.1.0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\2f8b7af17c9061e16e6899167ebe9917\transformed\design-26.1.0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\fcae1786dd322e72834643dceb78b7a6\transformed\appcompat-v7-26.1.0\AndroidManifest.xml:25:5-29:19
@@ -63,33 +63,35 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\ATHEEK\.gradle\
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\c6335d5d821ceca9b147ae358bc39bdd\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\ATHEEK\.gradle\caches\transforms-3\c6335d5d821ceca9b147ae358bc39bdd\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:25:9-35
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:24:9-41
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:25:9-41
 	android:icon
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:23:9-43
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:24:9-43
 	android:allowBackup
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:22:9-35
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:23:9-35
 	android:theme
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:26:9-40
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:27:9-40
+	android:name
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:22:9-36
 activity#lk.ac.mrt.cse.dbs.simpleexpensemanager.ui.MainActivity
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:27:9-36:20
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:28:9-37:20
 	android:label
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:29:13-45
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:30:13-45
 	android:theme
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:30:13-56
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:31:13-56
 	android:name
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:28:13-44
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:29:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:31:13-35:29
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:32:17-68
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:33:17-68
 	android:name
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:32:25-66
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:34:17-76
+ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:35:17-76
 	android:name
-		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:34:27-74
+		ADDED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml:35:27-74
 uses-sdk
 INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Github\SimpleExpenseManager\app\src\main\AndroidManifest.xml

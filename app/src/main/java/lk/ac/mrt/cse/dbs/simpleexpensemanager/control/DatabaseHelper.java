@@ -39,10 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final static  String EXPENSE_TYPE = "Type";
     private final static  String AMOUNT = "Amount";
 
-
-
-
-
+    private static SQLiteDatabase db;
     public DatabaseHelper(@Nullable Context context) {
         //creates a database with version 1
         super(context,DATABASE_NAME, null,1);
@@ -81,7 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void addAccount(Account account) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(ACCOUNT_NO,account.getAccountNo());
         cv.put(BANK,account.getBankName());
@@ -96,7 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
     public void removeAccount(String accountNo) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         long success = db.delete(ACCOUNTS_TABLE, ACCOUNT_NO+"=?", new String[]{accountNo});
         if (success==-1){
             Toast.makeText(context, "DB DELETE FAILED", Toast.LENGTH_LONG).show();
@@ -109,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Map<String,Account> getAccounts() {
         String selectQuery = "SELECT  * FROM " + ACCOUNTS_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Map<String,Account> accounts= new HashMap<>();
 
@@ -127,7 +124,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
     public void updateAccount(Account account) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(ACCOUNT_NO,account.getAccountNo());
         cv.put(BANK,account.getBankName());
@@ -146,7 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Transactions
     public Map<String,Transaction> getTransactions() {
         String selectQuery = "SELECT  * FROM " + LOGS_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Map<String,Transaction> transactions= new HashMap<>();
 
@@ -176,7 +173,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateTransaction(Transaction transaction) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         Date date = transaction.getDate();

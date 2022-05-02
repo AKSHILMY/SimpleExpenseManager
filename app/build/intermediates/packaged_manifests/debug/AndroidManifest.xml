@@ -24,6 +24,7 @@
         android:targetSdkVersion="26" />
 
     <application
+        android:name="lk.ac.mrt.cse.dbs.simpleexpensemanager.control.App"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"

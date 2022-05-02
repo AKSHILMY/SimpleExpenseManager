@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.App;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.DatabaseHelper;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
@@ -14,12 +15,12 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.ui.MainActivity;
 
 public class PersistentMemoryTransactionDAO implements TransactionDAO {
-    private final Context context = MainActivity.getContext();
-    private final DatabaseHelper dbHelper = new DatabaseHelper(context);
-    private final Map<String, Transaction> transactions;
+    private final Context context;
+    private final DatabaseHelper dbHelper ;
 
     public PersistentMemoryTransactionDAO() {
-        this.transactions = dbHelper.getTransactions();
+        context = App.getContext();
+        dbHelper = new DatabaseHelper(context);
     }
 
     @Override
@@ -30,13 +31,13 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
 
     @Override
     public List<Transaction> getAllTransactionLogs() {
-        return new ArrayList<>(this.transactions.values());
+        return new ArrayList<>(this.dbHelper.getTransactions().values());
     }
 
     @Override
     public List<Transaction> getPaginatedTransactionLogs(int limit) {
-        int size = transactions.size();
-        List<Transaction> transactionList = new ArrayList<>(this.transactions.values());
+        int size = dbHelper.getTransactions().size();
+        List<Transaction> transactionList = new ArrayList<>(this.dbHelper.getTransactions().values());
         if (size <= limit) {
             return transactionList;
         }

@@ -8,8 +8,12 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.PersistentMemoryTransact
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
 
 public class PersistentMemoryExpenseManager extends ExpenseManager{
+
+    public PersistentMemoryExpenseManager() {
+        setup();
+    }
     @Override
-    public void setup() throws ExpenseManagerException {
+    public void setup(){
         TransactionDAO persistentMemoryTransactionDAO = new PersistentMemoryTransactionDAO();
         setTransactionsDAO(persistentMemoryTransactionDAO);
 

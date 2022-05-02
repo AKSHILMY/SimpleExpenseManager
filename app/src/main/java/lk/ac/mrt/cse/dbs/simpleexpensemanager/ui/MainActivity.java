@@ -34,7 +34,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentMemoryExpenseMan
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
 
 public class MainActivity extends AppCompatActivity {
-    public DatabaseHelper db = new DatabaseHelper(this);
+//    public DatabaseHelper db = new DatabaseHelper(this);
     private ExpenseManager expenseManager;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -70,12 +70,10 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+//        db.addAccount(new Account("12345S","BANK02","AKL",325.89));
         /***  Begin generating dummy data for In-Memory implementation  ***/
         expenseManager = new PersistentMemoryExpenseManager();
         /*** END ***/
-    }
-    public static Context getContext(){
-        return MainActivity.getContext();
     }
 
     /**
