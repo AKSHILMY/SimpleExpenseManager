@@ -26,18 +26,18 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
     @Override
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
         Transaction transaction = new Transaction(date, accountNo, expenseType, amount);
-        dbHelper.updateTransaction(transaction);
+        dbHelper.addTransactionLog(transaction);
     }
 
     @Override
     public List<Transaction> getAllTransactionLogs() {
-        return new ArrayList<>(this.dbHelper.getTransactions().values());
+        return this.dbHelper.getTransactions();
     }
 
     @Override
     public List<Transaction> getPaginatedTransactionLogs(int limit) {
         int size = dbHelper.getTransactions().size();
-        List<Transaction> transactionList = new ArrayList<>(this.dbHelper.getTransactions().values());
+        List<Transaction> transactionList = this.dbHelper.getTransactions();
         if (size <= limit) {
             return transactionList;
         }

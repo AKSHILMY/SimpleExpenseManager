@@ -34,7 +34,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentMemoryExpenseMan
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
 
 public class MainActivity extends AppCompatActivity {
-//    public DatabaseHelper db = new DatabaseHelper(this);
+
     private ExpenseManager expenseManager;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

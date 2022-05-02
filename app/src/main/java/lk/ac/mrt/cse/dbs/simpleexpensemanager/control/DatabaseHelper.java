@@ -11,9 +11,11 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import java.util.List;
 import java.util.Map;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
@@ -60,9 +62,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "(" +
                 LOG_ID+" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 DATE+" TEXT NOT NULL," +
+                ACCOUNT_NO+" TEXT NOT NULL,"+
                 EXPENSE_TYPE+" TEXT NOT NULL," +
                 AMOUNT+" NUMERIC NOT NULL," +
-                ACCOUNT_NO+" TEXT NOT NULL," +
                 "FOREIGN KEY(" +ACCOUNT_NO +") REFERENCES " +ACCOUNTS_TABLE+"("+ACCOUNT_NO+"));";
         db.execSQL(query1);
         db.execSQL(query2);
@@ -85,20 +87,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(ACCOUNT_HOLDER,account.getAccountHolderName());
         cv.put(INITIAL_BALANCE,account.getBalance());
         long success = db.insert(ACCOUNTS_TABLE,null,cv);
-        if (success==-1){
-            Toast.makeText(context, "DB INSERT FAILED", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(context, "DB INSERT SUCCEEDED", Toast.LENGTH_LONG).show();
-        }
+//        if (success==-1){
+//            Toast.makeText(context, "Account Added Successfully", Toast.LENGTH_SHORT).show();
+//        }else{
+//            Toast.makeText(context, "Account Not Added", Toast.LENGTH_SHORT).show();
+//        }
 
     }
     public void removeAccount(String accountNo) {
         db = this.getWritableDatabase();
         long success = db.delete(ACCOUNTS_TABLE, ACCOUNT_NO+"=?", new String[]{accountNo});
         if (success==-1){
-            Toast.makeText(context, "DB DELETE FAILED", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Account Removal Failed", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "DB DELETE SUCCEEDED", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Account Removed", Toast.LENGTH_SHORT).show();
         }
         db.close();
 
@@ -131,37 +133,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(ACCOUNT_HOLDER,account.getAccountHolderName());
         cv.put(INITIAL_BALANCE,account.getBalance());
         long success = db.update(ACCOUNTS_TABLE,cv, ACCOUNT_NO+"=?", new String[]{account.getAccountNo()});
-        if (success==-1){
-            Toast.makeText(context, "DB UPDATE FAILED", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(context, "DB UPDATE SUCCEEDED", Toast.LENGTH_LONG).show();
-        }
+//        if (success==-1){
+//            Toast.makeText(context, "DB UPDATE FAILED", Toast.LENGTH_SHORT).show();
+//        }else{
+//            Toast.makeText(context, "DB UPDATE SUCCEEDED", Toast.LENGTH_SHORT).show();
+//        }
 
     }
 
 
     //Transactions
-    public Map<String,Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         String selectQuery = "SELECT  * FROM " + LOGS_TABLE;
         db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        Map<String,Transaction> transactions= new HashMap<>();
-
+        List<Transaction> transactions= new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            String[] dates = cursor.getString(0).split("-");
-            Date date= new Date(Integer.parseInt(dates[2]),Integer.parseInt(dates[1]),Integer.parseInt(dates[0]));
+            String[] dates = cursor.getString(1).split("-");
+            Date date= new Date(Integer.parseInt(dates[2])-1900,Integer.parseInt(dates[1]),Integer.parseInt(dates[0]));
             ExpenseType type = null;
-            if (cursor.getString(2).equals("EXPENSE")){
+            if (cursor.getString(3).equals("EXPENSE")){
                 type = ExpenseType.EXPENSE;
-            }else if (cursor.getString(2).equals("INCOME")){
+            }else if (cursor.getString(3).equals("INCOME")){
                 type = ExpenseType.INCOME;
             }else{
-                Toast.makeText(context, "EXPENSE TYPE UNRECOGNIZED", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "EXPENSE TYPE UNRECOGNIZED", Toast.LENGTH_SHORT).show();
             }
 
-            Transaction account = new Transaction(date,cursor.getString(1),type,cursor.getDouble(3));
-            transactions.put(cursor.getString(1),account);//using accountNo
+            Transaction account = new Transaction(date,cursor.getString(2),type,cursor.getDouble(4));
+            transactions.add(account);//using accountNo
             cursor.moveToNext();
         }
         if (!cursor.isClosed()) {
@@ -172,7 +173,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateTransaction(Transaction transaction) {
+    public void addTransactionLog(Transaction transaction) {
         db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -193,11 +194,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(AMOUNT,transaction.getAmount());
 
-        long success = db.update(LOGS_TABLE,cv, ACCOUNT_NO+"=?", new String[]{transaction.getAccountNo()});
+        long success = db.insert(LOGS_TABLE,null,cv);
         if (success==-1){
-            Toast.makeText(context, "TRANSACTION UPDATE FAILED", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "TRANSACTION UPDATE FAILED", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "TRANSACTION UPDATE SUCCEEDED", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "TRANSACTION UPDATE SUCCEEDED", Toast.LENGTH_SHORT).show();
         }
 
     }
